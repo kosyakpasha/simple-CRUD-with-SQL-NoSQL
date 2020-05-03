@@ -8,10 +8,11 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/pages/index');
 var users = require('./routes/services/users');
+var config = require('./db/config');
 
 var app = express();
 
-var url = 'mongodb+srv://admin:igqqrAYylsayDhpG@cluster0-3qvcr.mongodb.net/test?retryWrites=true&w=majority';
+var url = 'mongodb+srv://' + config.database.username + ':' + config.database.password + '@cluster0-3qvcr.mongodb.net/test?retryWrites=true&w=majority';
 
 mongoose.connect(url, {
     useNewUrlParser: true,
