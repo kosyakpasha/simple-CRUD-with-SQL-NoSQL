@@ -82,7 +82,7 @@ var UserController = {
         id: req.params.id
       }
     }).then(() => {
-      res.status(200).json();
+      res.status(200).json({ status: 'ok' });
     }).catch(err => {
       res.status(500).json(err)
     });

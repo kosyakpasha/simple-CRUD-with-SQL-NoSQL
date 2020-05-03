@@ -8,7 +8,7 @@ function reqCb(err, res, data) {
   if (data) {
     res.status(200).json(data);
   } else {
-    res.status(200).json();
+    res.status(200).json({ status: 'ok' });
   }
 }
 
@@ -92,6 +92,8 @@ var UserController = {
       User.deleteOne({ _id: req.params.id }, function(err) {
         reqCb(err, res);
       });
+
+      res.status(200).json({ status: 'ok' });
     } catch (err) {
       res.status(500).json(err);
     }
